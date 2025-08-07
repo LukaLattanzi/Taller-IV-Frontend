@@ -1,76 +1,127 @@
+/* Contenedor principal con tema oscuro */
 .category-page {
     padding: 20px;
-    }
-     
-    .category-header {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Header con elementos de control */
+.category-header {
     margin-left: 12px;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    }
-     
-    .category-header h1 {
-    color: #17a2b8;
-    }
-     
-    .add-cat {
+}
+
+/* Título principal con color cyan brillante */
+.category-header h1 {
+    color: #00d4ff;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.add-cat {
     margin: 0 auto;
-    }
-     
-    .category-header input {
+}
+
+/* Input con estilo oscuro y bordes definidos */
+.category-header input {
     padding: 10px;
     margin-right: 10px;
     width: 300px;
-    border: 1px solid #ddd;
+    border: 1px solid #555;
     font-size: 16px;
-    }
-     
-    .category-header button {
+    background-color: #2d2d2d;
+    color: #ffffff;
+    border-radius: 5px;
+}
+
+.category-header input:focus {
+    outline: none;
+    border-color: #00d4ff;
+    box-shadow: 0 0 5px rgba(0, 212, 255, 0.3);
+}
+
+.category-header input::placeholder {
+    color: #aaa;
+}
+
+/* Botones con estilo moderno y efectos hover */
+.category-header button {
     padding: 12px 12px;
-    background-color: #17a2b8;
+    background-color: #00d4ff;
     font-size: 16px;
-    color: white;
+    color: #000000;
     border: none;
     cursor: pointer;
-    }
-     
-    .category-list {
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.category-header button:hover {
+    background-color: #00b8d4;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 212, 255, 0.3);
+}
+
+/* Lista de categorías sin estilos por defecto */
+.category-list {
     list-style: none;
     padding: 0;
     margin-top: 50px;
-    }
-     
-    .category-item {
+}
+
+/* Items individuales con tema oscuro y efectos modernos */
+.category-item {
     display: flex;
     justify-content: space-between;
     padding: 18px;
     margin: 5px;
     font-size: 20px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #eee;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
     border-radius: 10px;
-    color: #2F4F4F;
+    color: #e8e8e8;
     font-weight: 550;
-    }
-     
-    .category-item:hover {
-    background-color: #f9ffff;
-    }
-     
-    .category-actions button {
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto hover mejorado para los items */
+.category-item:hover {
+    background-color: #2a2a2a;
+    border-color: #00d4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+/* Botones de acciones con estilos diferenciados */
+.category-actions button {
     margin-left: 10px;
-    padding: 5px 10px;
-    background-color: #17a2b8;
-    font-size: 16px;
     padding: 10px 20px;
-    color: white;
+    background-color: #00d4ff;
+    font-size: 16px;
+    color: #000000;
     border: none;
     cursor: pointer;
-    }
-     
-    .category-actions button:last-child {
-    background-color: #dc3545;
-    }
-     
-     
-    
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.category-actions button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de eliminar con color rojo distintivo */
+.category-actions button:last-child {
+    background-color: #ff4757;
+    color: #ffffff;
+}
+
+.category-actions button:last-child:hover {
+    background-color: #ff3742;
+    box-shadow: 0 4px 8px rgba(255, 71, 87, 0.3);
+}

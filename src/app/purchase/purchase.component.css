@@ -1,43 +1,157 @@
 .purchase-form-page {
     max-width: 600px;
     margin: 30px auto;
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    }
-     
-    .purchase-form-page h1 {
+    padding: 30px;
+    background-color: #1a1a1a;
+    border-radius: 12px;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid #333;
+    color: #e0e0e0;
+}
+
+.purchase-form-page h1 {
     text-align: center;
+    margin-bottom: 30px;
+    color: #00d4ff;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+.purchase-form-page .form-group {
     margin-bottom: 20px;
-    color: #17a2b8;
-    }
-     
-    .purchase-form-page .form-group {
-    margin-bottom: 15px;
-    }
-     
-    .purchase-form-page .form-group label {
+}
+
+.purchase-form-page .form-group label {
     display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-    color: #2F4F4F;
-    margin: 10px;
+    margin-bottom: 8px;
     font-weight: 550;
-    }
-     
-    .purchase-form-page .form-group input,
-    .purchase-form-page .form-group select,
-    .purchase-form-page .form-group textarea {
+    color: #e0e0e0;
+    margin: 10px 0;
+    font-size: 1rem;
+}
+
+.purchase-form-page .form-group input,
+.purchase-form-page .form-group select,
+.purchase-form-page .form-group textarea {
     width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 8px;
     box-sizing: border-box;
-    }
-     
-    .purchase-form-page .form-group textarea {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.purchase-form-page .form-group input:focus,
+.purchase-form-page .form-group select:focus,
+.purchase-form-page .form-group textarea:focus {
+    outline: none;
+    border-color: #00d4ff;
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+    background-color: #333;
+}
+
+.purchase-form-page .form-group input:hover,
+.purchase-form-page .form-group select:hover,
+.purchase-form-page .form-group textarea:hover {
+    border-color: #555;
+    background-color: #333;
+}
+
+.purchase-form-page .form-group textarea {
     resize: vertical;
-    height: 100px;
+    height: 120px;
+    font-family: inherit;
+}
+
+/* Estilos para botones */
+.purchase-form-page .btn {
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin: 10px 5px;
+    min-width: 120px;
+}
+
+.purchase-form-page .btn-primary {
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.purchase-form-page .btn-primary:hover {
+    background: linear-gradient(135deg, #0099cc, #00d4ff);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+    transform: translateY(-2px);
+}
+
+.purchase-form-page .btn-secondary {
+    background-color: #666;
+    color: #e0e0e0;
+    border: 2px solid #666;
+}
+
+.purchase-form-page .btn-secondary:hover {
+    background-color: #777;
+    border-color: #777;
+    transform: translateY(-2px);
+}
+
+/* Estilos para mensajes */
+.purchase-form-page .message {
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-weight: 500;
+    text-align: center;
+}
+
+.purchase-form-page .message.error {
+    background-color: rgba(255, 82, 82, 0.2);
+    color: #ff5252;
+    border: 1px solid #ff5252;
+}
+
+.purchase-form-page .message.success {
+    background-color: rgba(76, 175, 80, 0.2);
+    color: #4caf50;
+    border: 1px solid #4caf50;
+}
+
+/* Estilos para elementos de selección */
+.purchase-form-page .form-group select option {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+/* Placeholders */
+.purchase-form-page .form-group input::placeholder,
+.purchase-form-page .form-group textarea::placeholder {
+    color: #999;
+    opacity: 1;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .purchase-form-page {
+        margin: 15px;
+        padding: 20px;
+        max-width: none;
     }
-    
+
+    .purchase-form-page h1 {
+        font-size: 1.5rem;
+    }
+
+    .purchase-form-page .btn {
+        width: 100%;
+        margin: 5px 0;
+    }
+}

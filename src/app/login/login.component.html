@@ -1,27 +1,14 @@
 <div class="auth-container">
-    <h2>Inicio de Sesión</h2>
-    <p *ngIf="message" class="message">{{ message }}</p>
-  
-    <form (ngSubmit)="handleSubmit()">
+  <h2>Inicio de Sesión</h2>
+  <p *ngIf="message" class="message">{{ message }}</p>
 
-      <input
-        type="email"
-        placeholder="Email ..."
-        [(ngModel)]="formData.email"
-        name="email"
-        required
-      />
-      <input
-        type="password"
-        placeholder="Contraseña ..."
-        [(ngModel)]="formData.password"
-        name="password"
-        required
-      />
+  <form (ngSubmit)="handleSubmit()">
+
+    <input type="email" placeholder="Email ..." [(ngModel)]="formData.email" name="email" required />
+    <input type="password" placeholder="Contraseña ..." [(ngModel)]="formData.password" name="password" required />
 
 
-      <button type="submit">Iniciar Sesión</button>
-    </form>
-    <p>¿No tienes una cuenta? <a routerLink="/register" routerLinkActive="router-link-active">Registrarse</a></p>
-  </div>
-  
+    <button type="submit">Iniciar Sesión</button>
+  </form>
+  <p>¿No tienes una cuenta? <a routerLink="/register" routerLinkActive="router-link-active">Registrarse</a></p>
+</div>

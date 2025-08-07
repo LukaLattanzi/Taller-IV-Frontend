@@ -1,90 +1,101 @@
+/* Estilos del contenedor principal del perfil con tema oscuro */
 .profile-page {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
     padding: 20px;
-    }
-     
-    .profile-card {
-    background: linear-gradient(145deg, #f3f4f6, #ffffff);
+    background-color: #0f0f0f;
+    color: #ffffff;
+}
+
+/* Tarjeta principal del perfil con gradiente oscuro y efectos modernos */
+.profile-card {
+    background: linear-gradient(145deg, #1a1d21, #2d2d2d);
     border-radius: 15px;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.1), -10px -10px 20px rgba(255, 255, 255, 0.5);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.4), -10px -10px 20px rgba(255, 255, 255, 0.02);
     padding: 40px;
     width: 60%;
     text-align: center;
     transition: transform 0.3s ease-in-out;
-    }
-     
-     
-    .profile-card:hover {
+    border: 1px solid #444;
+}
+
+/* Efecto hover mejorado para tema oscuro */
+.profile-card:hover {
     transform: scale(1.05);
-    box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.15);
-    }
-     
-    .profile-card h1 {
+    box-shadow: 10px 20px 40px rgba(0, 0, 0, 0.6), 0 0 20px rgba(0, 212, 255, 0.1);
+}
+
+/* Título principal con color cyan brillante y efecto de resplandor */
+.profile-card h1 {
     font-size: 2.5rem;
-    color: #17a2b8;
+    color: #00d4ff;
     margin-bottom: 100px;
     animation: fadeIn 1s ease-in-out;
     text-transform: capitalize;
-    }
-     
-    .profile-info {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+/* Contenedor de información con fondo oscuro y sombras internas */
+.profile-info {
     padding: 20px;
-    background: #f9f9f9;
+    background: #1a1a1a;
     border-radius: 10px;
-    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.05);
-    }
-     
-    .profile-item {
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.3);
+    border: 1px solid #333;
+}
+
+/* Items individuales del perfil con colores oscuros */
+.profile-item {
     display: flex;
     justify-content: space-between;
     padding: 10px 0;
     font-size: 20px;
-    color: #444;
-    border-bottom: 1px solid #eee;
+    color: #e8e8e8;
+    border-bottom: 1px solid #444;
     transition: color 0.2s;
-    }
-     
-    .profile-item label {
+}
+
+/* Etiquetas con color cyan para consistencia */
+.profile-item label {
     font-weight: bold;
-    color: #17a2b8;
-    }
-     
-    .profile-item span {
-    color: #333;
-    }
-     
-     
-    /* Animations */
-    @keyframes fadeIn {
+    color: #00d4ff;
+}
+
+/* Valores del perfil en gris claro */
+.profile-item span {
+    color: #cccccc;
+}
+
+
+/* Animations */
+@keyframes fadeIn {
     from {
-    opacity: 0;
-    transform: translateY(-20px);
+        opacity: 0;
+        transform: translateY(-20px);
     }
-     
+
     to {
-    opacity: 1;
-    transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-    }
-     
-    @keyframes slideDown {
+}
+
+@keyframes slideDown {
     from {
-    opacity: 0;
-    transform: translateY(-30px);
+        opacity: 0;
+        transform: translateY(-30px);
     }
-     
+
     to {
-    opacity: 1;
-    transform: translateY(0);
+        opacity: 1;
+        transform: translateY(0);
     }
-    }
-     
-    @keyframes fadeOut {
+}
+
+@keyframes fadeOut {
     to {
-    opacity: 0;
+        opacity: 0;
     }
-    }
-    
+}

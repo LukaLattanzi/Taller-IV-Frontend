@@ -1,62 +1,102 @@
+/* Contenedor principal con tema oscuro */
 .supplier-page {
     padding: 20px;
-    }
-     
-    .supplier-header {
+    background-color: #0f0f0f;
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+/* Header con elementos de control y título */
+.supplier-header {
     display: flex;
     align-items: center;
     margin-bottom: 30px;
-    color: #17a2b8;
+    color: #00d4ff;
     margin-left: 10px;
-    }
-     
-    .supplier-header button {
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
+}
+
+/* Botones del header con estilo moderno */
+.supplier-header button {
     padding: 12px 12px;
-    background-color: #17a2b8;
+    background-color: #00d4ff;
     font-size: 16px;
-    color: white;
+    color: #000000;
     border: none;
     cursor: pointer;
-    }
-     
-    .add-sup {
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.supplier-header button:hover {
+    background-color: #00b8d4;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 212, 255, 0.3);
+}
+
+.add-sup {
     margin: 0 auto;
-    }
-     
-    .supplier-list {
+}
+
+/* Lista de proveedores sin estilos por defecto */
+.supplier-list {
     list-style: none;
     padding: 0;
     margin-top: 50px;
-    }
-    .supplier-item {
+}
+
+/* Items individuales de proveedores con tema oscuro */
+.supplier-item {
     display: flex;
     justify-content: space-between;
     padding: 18px;
     margin: 5px;
     font-size: 20px;
-    background-color: #f9f9f9;
-    border-bottom: 1px solid #eee;
+    background-color: #1a1a1a;
+    border: 1px solid #333;
     border-radius: 10px;
-    color: #2F4F4F;
+    color: #e8e8e8;
     font-weight: 550;
-    }
-     
-    .supplier-item:hover {
-    background-color: #f9ffff;
-    }
-     
-    .supplier-actions button {
-     
+    transition: all 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Efecto hover mejorado para los items */
+.supplier-item:hover {
+    background-color: #2a2a2a;
+    border-color: #00d4ff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 212, 255, 0.1);
+}
+
+/* Botones de acciones con estilos diferenciados */
+.supplier-actions button {
+
     margin-left: 10px;
-    background-color: #17a2b8;
+    background-color: #00d4ff;
     font-size: 16px;
     padding: 10px 20px;
-    color: white;
+    color: #000000;
     border: none;
     cursor: pointer;
-    }
-     
-    .supplier-actions button:last-child {
-    background-color: #dc3545;
-    }
-    
+    border-radius: 5px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.supplier-actions button:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Botón de eliminar con color rojo distintivo */
+.supplier-actions button:last-child {
+    background-color: #ff4757;
+    color: #ffffff;
+}
+
+.supplier-actions button:last-child:hover {
+    background-color: #ff3742;
+    box-shadow: 0 4px 8px rgba(255, 71, 87, 0.3);
+}

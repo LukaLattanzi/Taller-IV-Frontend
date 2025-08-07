@@ -1,133 +1,176 @@
-// Import necessary Angular modules and services
+// Importación de módulos y servicios necesarios de Angular
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { NgxChartsModule } from '@swimlane/ngx-charts';  // Module for charts
-import { ApiService } from '../service/api.service'; // Service to interact with API
-import { FormsModule } from '@angular/forms'; // Forms module for two-way binding
+import { NgxChartsModule } from '@swimlane/ngx-charts';  // Módulo para gráficos y visualizaciones
+import { ApiService } from '../service/api.service'; // Servicio para interactuar con la API
+import { FormsModule } from '@angular/forms'; // Módulo de formularios para two-way binding
 
-// Define the component metadata
+/**
+ * Componente Dashboard
+ * 
+ * Este componente es responsable de mostrar el panel de control principal
+ * del sistema de inventario, incluyendo gráficos estadísticos y análisis
+ * de transacciones. Proporciona visualizaciones interactivas de datos
+ * como gráficos de barras y circulares para análisis de tendencias.
+ */
 @Component({
-  selector: 'app-dashboard', // The component selector
-  standalone: true, // Marks this component as standalone (no need for NgModule)
-  imports: [CommonModule, NgxChartsModule, FormsModule], // Import other modules required for this component
-  templateUrl: './dashboard.component.html', // HTML template
-  styleUrl: './dashboard.component.css', // CSS styles for the component
+  selector: 'app-dashboard', // Selector del componente
+  standalone: true, // Marca este componente como standalone (no necesita NgModule)
+  imports: [CommonModule, NgxChartsModule, FormsModule], // Importa otros módulos requeridos
+  templateUrl: './dashboard.component.html', // Template HTML del componente
+  styleUrl: './dashboard.component.css', // Estilos CSS del componente
 })
 
 export class DashboardComponent {
-  // Define the properties for storing transaction data and chart data
-  transactions: any[] = []; // Array to hold all transactions
-  transactionTypeData: any[] = []; // Data for the chart showing count of transactions by type
-  transactionAmountData: any[] = []; // Data for the chart showing total amount by transaction type
-  monthlyTransactionData: any[] = []; // Data for the chart showing daily totals for the selected month
+  // Propiedades para almacenar datos de transacciones y datos de gráficos
+  transactions: any[] = []; // Array que contiene todas las transacciones
+  transactionTypeData: any[] = []; // Datos para gráfico que muestra conteo de transacciones por tipo
+  transactionAmountData: any[] = []; // Datos para gráfico que muestra monto total por tipo de transacción
+  monthlyTransactionData: any[] = []; // Datos para gráfico que muestra totales diarios del mes seleccionado
 
-  // List of months, used for selecting a month
+  /**
+   * Lista de meses del año
+   * Utilizada para el selector de mes en el filtro de datos mensuales
+   */
   months = [
-    { name: 'January', value: '01' },
-    { name: 'February', value: '02' },
-    { name: 'March', value: '03' },
-    { name: 'April', value: '04' },
-    { name: 'May', value: '05' },
-    { name: 'June', value: '06' },
-    { name: 'July', value: '07' },
-    { name: 'August', value: '08' },
-    { name: 'September', value: '09' },
-    { name: 'October', value: '10' },
-    { name: 'November', value: '11' },
-    { name: 'December', value: '12' },
+    { name: 'Enero', value: '01' },
+    { name: 'Febrero', value: '02' },
+    { name: 'Marzo', value: '03' },
+    { name: 'Abril', value: '04' },
+    { name: 'Mayo', value: '05' },
+    { name: 'Junio', value: '06' },
+    { name: 'Julio', value: '07' },
+    { name: 'Agosto', value: '08' },
+    { name: 'Septiembre', value: '09' },
+    { name: 'Octubre', value: '10' },
+    { name: 'Noviembre', value: '11' },
+    { name: 'Diciembre', value: '12' },
   ];
 
-  // Array to store the years (last 10 years from current year)
-  years = Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i); 
+  // Array que almacena los años (últimos 10 años desde el año actual)
+  years = Array.from({ length: 10 }, (_, i) => new Date().getFullYear() - i);
 
-  // Selected month and year for filtering monthly data
+  // Mes y año seleccionados para filtrar datos mensuales
   selectedMonth = '';
   selectedYear = '';
 
-  // Chart view dimensions, legend, and animations settings
-  view: [number, number] = [700, 400];  // Chart size: width x height
-  showLegend = true;  // Display chart legend
-  showLabels = true;  // Display labels on chart
-  animations = true;  // Enable chart animations
+  // Configuración de dimensiones, leyenda y animaciones de los gráficos
+  view: [number, number] = [700, 400];  // Tamaño del gráfico: ancho x alto
+  showLegend = true;  // Mostrar leyenda del gráfico
+  showLabels = true;  // Mostrar etiquetas en el gráfico
+  animations = true;  // Habilitar animaciones del gráfico
 
-  // Constructor to inject ApiService for API calls
-  constructor(private apiService: ApiService) {}
+  /**
+   * Constructor del componente
+   * @param apiService - Servicio inyectado para realizar llamadas a la API
+   */
+  constructor(private apiService: ApiService) { }
 
-  // ngOnInit lifecycle hook, called when the component initializes
+  /**
+   * Hook del ciclo de vida ngOnInit
+   * Se ejecuta cuando el componente se inicializa.
+   * Carga las transacciones iniciales para mostrar en el dashboard.
+   */
   ngOnInit(): void {
-    this.loadTransactions(); // Load transactions when the component initializes
+    this.loadTransactions(); // Cargar transacciones cuando el componente se inicializa
   }
 
-  // Method to fetch all transactions from the API
+  /**
+   * Método para obtener todas las transacciones desde la API
+   * Realiza una llamada al servicio API para cargar los datos
+   * y procesa la información para generar los gráficos.
+   */
   loadTransactions(): void {
     this.apiService.getAllTransactions('').subscribe((data) => {
-      this.transactions = data.transactions; // Store transactions data
-      this.processChartData(); // Process data to generate charts
+      this.transactions = data.transactions; // Almacenar datos de transacciones
+      this.processChartData(); // Procesar datos para generar gráficos
     });
   }
 
-  // Method to process transaction data for type-based and amount-based charts
+  /**
+   * Método para procesar datos de transacciones para gráficos por tipo y por monto
+   * 
+   * Este método analiza todas las transacciones y genera dos conjuntos de datos:
+   * 1. Conteo de transacciones por tipo (Venta, Compra, etc.)
+   * 2. Suma de montos totales por tipo de transacción
+   * 
+   * Los datos procesados se utilizan para renderizar gráficos circulares y de barras.
+   */
   processChartData(): void {
-    // Object to count the number of transactions by type
+    // Objeto para contar el número de transacciones por tipo
     const typeCounts: { [key: string]: number } = {};
 
-    // Object to sum the transaction amounts by type
+    // Objeto para sumar los montos de transacciones por tipo
     const amountByType: { [key: string]: number } = {};
 
-    // Loop through each transaction to calculate totals by type
+    // Iterar a través de cada transacción para calcular totales por tipo
     this.transactions.forEach((transaction) => {
-      const type = transaction.transactionType; // Get the transaction type
-      typeCounts[type] = (typeCounts[type] || 0) + 1; // Count transactions by type
-      amountByType[type] = (amountByType[type] || 0) + transaction.totalPrice; // Sum amounts by type
+      const type = transaction.transactionType; // Obtener el tipo de transacción
+      typeCounts[type] = (typeCounts[type] || 0) + 1; // Contar transacciones por tipo
+      amountByType[type] = (amountByType[type] || 0) + transaction.totalPrice; // Sumar montos por tipo
     });
 
-    // Prepare data for chart displaying number of transactions by type
+    // Preparar datos para gráfico que muestra número de transacciones por tipo
     this.transactionTypeData = Object.keys(typeCounts).map((type) => ({
       name: type,
       value: typeCounts[type],
     }));
 
-    // Prepare data for chart displaying total transaction amount by type
+    // Preparar datos para gráfico que muestra monto total de transacciones por tipo
     this.transactionAmountData = Object.keys(amountByType).map((type) => ({
       name: type,
       value: amountByType[type],
     }));
   }
 
-  // Method to load transaction data for a specific month and year
+  /**
+   * Método para cargar datos de transacciones de un mes y año específicos
+   * 
+   * Este método filtra las transacciones por el mes y año seleccionados
+   * por el usuario. Actualiza tanto los gráficos generales como el gráfico
+   * de análisis diario para el período seleccionado.
+   */
   loadMonthlyData(): void {
-    // If no month or year is selected, exit the function
+    // Si no se ha seleccionado mes o año, salir de la función
     if (!this.selectedMonth || !this.selectedYear) {
       return;
     }
 
-    // Call API to get transactions for the selected month and year
+    // Llamar a la API para obtener transacciones del mes y año seleccionados
     this.apiService
       .getTransactionsByMonthAndYear(
-        Number.parseInt(this.selectedMonth), // Convert month string to number
-        Number.parseInt(this.selectedYear) // Convert year string to number
+        Number.parseInt(this.selectedMonth), // Convertir string de mes a número
+        Number.parseInt(this.selectedYear) // Convertir string de año a número
       )
       .subscribe((data) => {
-        this.transactions = data.transactions; // Store transactions for the selected month
-        this.processChartData(); // Process the overall data for charts
-        this.processMonthlyData(data.transactions); // Process the data for the daily chart
+        this.transactions = data.transactions; // Almacenar transacciones del mes seleccionado
+        this.processChartData(); // Procesar datos generales para gráficos
+        this.processMonthlyData(data.transactions); // Procesar datos para gráfico diario
       });
   }
 
-  // Method to process daily transaction data for the selected month
+  /**
+   * Método para procesar datos de transacciones diarias del mes seleccionado
+   * 
+   * Este método analiza las transacciones del mes filtrado y genera
+   * un conjunto de datos que muestra los totales por día, útil para
+   * identificar patrones y tendencias de ventas/compras diarias.
+   * 
+   * @param transactions - Array de transacciones del mes seleccionado
+   */
   processMonthlyData(transactions: any[]): void {
-    // Object to store daily total amounts (key = day, value = total amount)
+    // Objeto para almacenar totales diarios (clave = día, valor = monto total)
     const dailyTotals: { [key: string]: number } = {};
 
-    // Loop through each transaction and accumulate totals for each day
+    // Iterar a través de cada transacción y acumular totales para cada día
     transactions.forEach((transaction) => {
-      const date = new Date(transaction.createdAt).getDate().toString(); // Get the day from transaction date
-      dailyTotals[date] = (dailyTotals[date] || 0) + transaction.totalPrice; // Sum daily totals
+      const date = new Date(transaction.createdAt).getDate().toString(); // Obtener el día de la fecha de transacción
+      dailyTotals[date] = (dailyTotals[date] || 0) + transaction.totalPrice; // Sumar totales diarios
     });
 
-    // Prepare data for chart displaying daily totals for the selected month
+    // Preparar datos para gráfico que muestra totales diarios del mes seleccionado
     this.monthlyTransactionData = Object.keys(dailyTotals).map((day) => ({
-      name: `Day ${day}`,
+      name: `Día ${day}`,
       value: dailyTotals[day],
     }));
   }

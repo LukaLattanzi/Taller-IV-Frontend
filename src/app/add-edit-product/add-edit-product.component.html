@@ -1,9 +1,9 @@
 <div class="product-form-page">
     <p *ngIf="message" class="message">{{message}}</p>
-    <h1>{{isEditing? 'Edit Product' : 'Add Product'}}</h1>
+    <h1>{{isEditing? 'Editar Producto' : 'Agregar Producto'}}</h1>
     <form (submit)="handleSubmit($event)">
         <div class="form-group">
-            <label for="">Product Name</label>
+            <label for="">Nombre del Producto</label>
             <input type="text" [(ngModel)]="name" name="name" required>
         </div>
 
@@ -13,26 +13,26 @@
         </div>
 
         <div class="form-group">
-            <label for="">Stock Quantity</label>
+            <label for="">Cantidad en Stock</label>
             <input type="number" [(ngModel)]="stockQuantity" name="stockQuantity" required>
         </div>
 
         <div class="form-group">
-            <label for="">Price</label>
+            <label for="">Precio</label>
             <input type="number" [(ngModel)]="price" name="price" required>
         </div>
 
 
         <div class="form-group">
-            <label for="">Description</label>
+            <label for="">Descripción</label>
             <textarea [(ngModel)]="description" name="description" required></textarea>
         </div>
 
 
         <div class="form-group">
-            <label for="">Category</label>
+            <label for="">Categoría</label>
             <select [(ngModel)]="categoryId" name="categoryId" id="" required>
-                <option value="">Select a category</option>
+                <option value="">Seleccionar una categoría</option>
                 <option *ngFor="let category of categories" [value]="category.id">{{category.name}}</option>
             </select>
         </div>
@@ -45,7 +45,7 @@
             </div>
         </div>
 
-        <button type="submit">{{isEditing? 'Edit Product' : 'Add Product'}}</button>
+        <button type="submit">{{isEditing? 'Editar Producto' : 'Agregar Producto'}}</button>
     </form>
 
 </div>
