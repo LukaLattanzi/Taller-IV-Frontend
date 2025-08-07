@@ -1,65 +1,52 @@
+/* Contenedor principal del formulario de ventas */
 .sell-form-page {
     max-width: 600px;
     margin: 30px auto;
     padding: 30px;
-    background-color: #0f0f0f;
+    background-color: #1a1a1a;
     border-radius: 12px;
-    box-shadow: 0px 12px 30px rgba(0, 0, 0, 0.6);
-    border: 2px solid #333;
-    color: #ffffff;
-    position: relative;
+    box-shadow: 0px 8px 25px rgba(0, 0, 0, 0.4);
+    border: 1px solid #333;
+    color: #e0e0e0;
 }
 
-.sell-form-page::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 82, 82, 0.1));
-    border-radius: 12px;
-    z-index: -1;
-}
-
+/* Título principal */
 .sell-form-page h1 {
     text-align: center;
     margin-bottom: 30px;
-    color: #ffffff;
-    font-size: 2.2rem;
-    font-weight: 700;
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
-    letter-spacing: 1px;
+    color: #00d4ff;
+    font-size: 2rem;
+    font-weight: 600;
+    text-shadow: 0 0 10px rgba(0, 212, 255, 0.3);
 }
 
+/* Grupos de formulario */
 .sell-form-page .form-group {
-    margin-bottom: 25px;
+    margin-bottom: 20px;
 }
 
 .sell-form-page .form-group label {
     display: block;
-    margin-bottom: 10px;
-    font-weight: 600;
-    color: #ffffff;
+    margin-bottom: 8px;
+    font-weight: 550;
+    color: #e0e0e0;
     margin: 10px 0;
-    font-size: 1.1rem;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
 }
 
+/* Estilos para inputs, selects y textareas */
 .sell-form-page .form-group input,
 .sell-form-page .form-group select,
 .sell-form-page .form-group textarea {
     width: 100%;
-    padding: 15px;
-    border: 2px solid #555;
-    border-radius: 10px;
+    padding: 12px;
+    border: 2px solid #333;
+    border-radius: 8px;
     box-sizing: border-box;
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-size: 1.1rem;
-    font-weight: 500;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+    font-size: 1rem;
     transition: all 0.3s ease;
-    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 .sell-form-page .form-group input:focus,
@@ -67,184 +54,108 @@
 .sell-form-page .form-group textarea:focus {
     outline: none;
     border-color: #00d4ff;
-    box-shadow: 0 0 15px rgba(0, 212, 255, 0.5), inset 0 2px 4px rgba(0, 0, 0, 0.3);
-    background-color: #2a2a2a;
-    transform: scale(1.02);
+    box-shadow: 0 0 8px rgba(0, 212, 255, 0.3);
+    background-color: #333;
 }
 
 .sell-form-page .form-group input:hover,
 .sell-form-page .form-group select:hover,
 .sell-form-page .form-group textarea:hover {
-    border-color: #777;
-    background-color: #2a2a2a;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4), inset 0 2px 4px rgba(0, 0, 0, 0.3);
+    border-color: #555;
+    background-color: #333;
 }
 
 .sell-form-page .form-group textarea {
     resize: vertical;
-    height: 130px;
+    height: 120px;
     font-family: inherit;
 }
 
-/* Estilos para botones con alto contraste */
+/* Estilos para botones */
 .sell-form-page .btn {
-    padding: 15px 30px;
+    padding: 12px 24px;
     border: none;
-    border-radius: 10px;
-    font-size: 1.1rem;
-    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    margin: 15px 8px;
-    min-width: 140px;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    position: relative;
-    overflow: hidden;
-}
-
-.sell-form-page .btn::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -100%;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
-    transition: left 0.5s;
-}
-
-.sell-form-page .btn:hover::before {
-    left: 100%;
+    margin: 10px 5px;
+    min-width: 120px;
 }
 
 .sell-form-page .btn-primary {
-    background: linear-gradient(135deg, #00d4ff, #0099cc, #007acc);
-    color: #000000;
-    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
-    border: 2px solid #00d4ff;
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    color: #fff;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
 }
 
 .sell-form-page .btn-primary:hover {
-    background: linear-gradient(135deg, #ffffff, #00d4ff, #0099cc);
-    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.6);
-    transform: translateY(-3px) scale(1.05);
-    color: #000000;
+    background: linear-gradient(135deg, #0099cc, #00d4ff);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.4);
+    transform: translateY(-2px);
 }
 
 .sell-form-page .btn-secondary {
-    background: linear-gradient(135deg, #666, #888);
-    color: #ffffff;
+    background-color: #666;
+    color: #e0e0e0;
     border: 2px solid #666;
-    box-shadow: 0 6px 20px rgba(102, 102, 102, 0.3);
 }
 
 .sell-form-page .btn-secondary:hover {
-    background: linear-gradient(135deg, #888, #aaa);
-    border-color: #888;
-    transform: translateY(-3px) scale(1.05);
-    box-shadow: 0 8px 25px rgba(102, 102, 102, 0.5);
+    background-color: #777;
+    border-color: #777;
+    transform: translateY(-2px);
 }
 
-/* Estilos para mensajes con alto contraste */
+/* Estilos para mensajes */
 .sell-form-page .message {
-    padding: 15px 20px;
-    border-radius: 10px;
-    margin: 20px 0;
-    font-weight: 600;
+    padding: 12px;
+    border-radius: 8px;
+    margin: 15px 0;
+    font-weight: 500;
     text-align: center;
-    font-size: 1.1rem;
-    border: 2px solid;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 }
 
 .sell-form-page .message.error {
-    background: linear-gradient(135deg, rgba(255, 82, 82, 0.2), rgba(255, 0, 0, 0.1));
+    background-color: rgba(255, 82, 82, 0.2);
     color: #ff5252;
-    border-color: #ff5252;
-    box-shadow: 0 4px 15px rgba(255, 82, 82, 0.4);
+    border: 1px solid #ff5252;
 }
 
 .sell-form-page .message.success {
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.2), rgba(0, 255, 0, 0.1));
+    background-color: rgba(76, 175, 80, 0.2);
     color: #4caf50;
-    border-color: #4caf50;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+    border: 1px solid #4caf50;
 }
 
-/* Estilos para elementos de selección con alto contraste */
+/* Estilos para elementos de selección */
 .sell-form-page .form-group select option {
-    background-color: #0f0f0f;
-    color: #ffffff;
-    padding: 10px;
-    border: none;
+    background-color: #2a2a2a;
+    color: #e0e0e0;
 }
 
-.sell-form-page .form-group select option:checked {
-    background-color: #00d4ff;
-    color: #000000;
-}
-
-/* Placeholders con alto contraste */
+/* Placeholders */
 .sell-form-page .form-group input::placeholder,
 .sell-form-page .form-group textarea::placeholder {
-    color: #bbb;
+    color: #999;
     opacity: 1;
-    font-weight: 500;
 }
 
-/* Efectos de glow para elementos activos */
-.sell-form-page .form-group input:focus::placeholder,
-.sell-form-page .form-group textarea:focus::placeholder {
-    color: #00d4ff;
-}
-
-/* Estilos responsivos con mejoras de contraste */
+/* Estilos responsivos */
 @media (max-width: 768px) {
     .sell-form-page {
         margin: 15px;
-        padding: 25px;
+        padding: 20px;
         max-width: none;
-        border-width: 1px;
     }
 
     .sell-form-page h1 {
-        font-size: 1.8rem;
-        margin-bottom: 25px;
+        font-size: 1.5rem;
     }
 
     .sell-form-page .btn {
         width: 100%;
-        margin: 8px 0;
-        padding: 18px;
-        font-size: 1.2rem;
+        margin: 5px 0;
     }
-
-    .sell-form-page .form-group input,
-    .sell-form-page .form-group select,
-    .sell-form-page .form-group textarea {
-        font-size: 1.2rem;
-        padding: 18px;
-    }
-}
-
-/* Animaciones adicionales para mayor contraste */
-@keyframes glow {
-    0% {
-        box-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
-    }
-
-    50% {
-        box-shadow: 0 0 20px rgba(0, 212, 255, 0.8);
-    }
-
-    100% {
-        box-shadow: 0 0 5px rgba(0, 212, 255, 0.5);
-    }
-}
-
-.sell-form-page .form-group input:focus,
-.sell-form-page .form-group select:focus,
-.sell-form-page .form-group textarea:focus {
-    animation: glow 2s infinite;
 }

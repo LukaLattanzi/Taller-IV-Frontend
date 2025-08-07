@@ -37,6 +37,43 @@
     padding: 10px;
 }
 
+/* Estilos para etiquetas de los filtros */
+.dashboard-container label {
+    color: #e0e0e0;
+    font-weight: 600;
+    font-size: 1.1rem;
+    margin-right: 10px;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilos para el botón de filtro */
+.dashboard-container button {
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #00d4ff, #0099cc);
+    color: #000;
+    border: 2px solid #00d4ff;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 20px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    box-shadow: 0 4px 15px rgba(0, 212, 255, 0.3);
+}
+
+.dashboard-container button:hover {
+    background: linear-gradient(135deg, #ffffff, #00d4ff);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.5);
+    transform: translateY(-2px);
+}
+
+.dashboard-container button:active {
+    transform: translateY(0);
+    box-shadow: 0 3px 10px rgba(0, 212, 255, 0.4);
+}
+
 h1,
 h2 {
     text-align: center;
@@ -66,4 +103,61 @@ ngx-charts-pie-chart {
     padding: 20px;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
     border: 1px solid #333;
+}
+
+/* Estilos para el texto de los gráficos - mejor contraste */
+::ng-deep .ngx-charts text {
+    fill: #e0e0e0 !important;
+    font-weight: 500;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Etiquetas de los ejes */
+::ng-deep .ngx-charts .x.axis .tick text,
+::ng-deep .ngx-charts .y.axis .tick text {
+    fill: #e0e0e0 !important;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+/* Títulos de los ejes */
+::ng-deep .ngx-charts .x.axis .axis-label,
+::ng-deep .ngx-charts .y.axis .axis-label {
+    fill: #ffffff !important;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+/* Leyenda del gráfico */
+::ng-deep .ngx-charts .legend .legend-labels .legend-label {
+    color: #e0e0e0 !important;
+    font-weight: 500;
+}
+
+/* Etiquetas de datos en gráficos circulares */
+::ng-deep .ngx-charts .pie-label {
+    fill: #ffffff !important;
+    font-weight: 600;
+    font-size: 13px;
+}
+
+/* Tooltips */
+::ng-deep .ngx-charts .tooltip {
+    background-color: #2a2a2a !important;
+    border: 1px solid #444 !important;
+    color: #e0e0e0 !important;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+}
+
+::ng-deep .ngx-charts .tooltip .tooltip-label {
+    color: #e0e0e0 !important;
+    font-weight: 500;
+}
+
+/* Líneas de la grilla */
+::ng-deep .ngx-charts .gridline-path {
+    stroke: #444 !important;
+    stroke-width: 1;
+    opacity: 0.7;
 }
