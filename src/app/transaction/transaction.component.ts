@@ -97,7 +97,7 @@ export class TransactionComponent implements OnInit {
         this.showMessage(
           error?.error?.message ||
           error?.message ||
-          'Unable to Get all Transactions ' + error
+          'No se pudo obtener la lista de transacciones' + error
         );
       },
     });

@@ -65,7 +65,7 @@ export class SupplierComponent implements OnInit {
         this.showMessage(
           error?.error?.message ||
           error?.message ||
-          'Unable to get suppliers' + error
+          'No se pudo obtener la lista de proveedores' + error
         );
       },
     });
@@ -101,20 +101,20 @@ export class SupplierComponent implements OnInit {
   //Delete a caetgory
   handleDeleteSupplier(supplierId: string): void {
     // Mostrar diálogo de confirmación antes de eliminar
-    if (window.confirm("Are you sure you want to delete this supplier?")) {
+    if (window.confirm("¿Estás seguro de que deseas eliminar este proveedor?")) {
       // Proceder con la eliminación si el usuario confirma
       this.apiService.deleteSupplier(supplierId).subscribe({
         // Manejo de respuesta exitosa
         next: (res: any) => {
           if (res.status === 200) {
-            this.showMessage("Supplier deleted successfully")
+            this.showMessage("Proveedor eliminado con éxito");
             // Recargar la lista de proveedores para reflejar los cambios
             this.getSuppliers(); //reload the category
           }
         },
         // Manejo de errores en la eliminación
         error: (error) => {
-          this.showMessage(error?.error?.message || error?.message || "Unable to Delete Supplier" + error)
+          this.showMessage(error?.error?.message || error?.message || "No se pudo eliminar el proveedor" + error)
         }
       })
     }

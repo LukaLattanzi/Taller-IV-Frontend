@@ -130,7 +130,7 @@ export class AddEditSupplierComponent implements OnInit {
   handleSubmit() {
     // Validación de campos requeridos
     if (!this.formData.name || !this.formData.address) {
-      this.showMessage('All fields are nessary');
+      this.showMessage('Todos los campos son necesarios');
       return;
     }
 
@@ -155,7 +155,7 @@ export class AddEditSupplierComponent implements OnInit {
         },
         // Manejo de errores durante la actualización
         error: (error) => {
-          this.showMessage(error?.error?.message || error?.message || "Unable to edit supplier" + error)
+          this.showMessage(error?.error?.message || error?.message || "No se pudo editar el proveedor" + error)
         }
       })
     } else {
@@ -165,14 +165,14 @@ export class AddEditSupplierComponent implements OnInit {
         next: (res: any) => {
           if (res.status === 200) {
             // Mostrar mensaje de confirmación
-            this.showMessage("Supplier Added successfully");
+            this.showMessage("Proveedor agregado correctamente");
             // Redirigir a la lista de proveedores
             this.router.navigate(['/supplier'])
           }
         },
         // Manejo de errores durante la creación
         error: (error) => {
-          this.showMessage(error?.error?.message || error?.message || "Unable to Add supplier" + error)
+          this.showMessage(error?.error?.message || error?.message || "No se pudo agregar el proveedor" + error)
         }
       })
     }

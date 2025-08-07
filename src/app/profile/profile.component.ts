@@ -61,7 +61,7 @@ export class ProfileComponent implements OnInit {
         this.showMessage(
           error?.error?.message ||
           error?.message ||
-          'Unable to Get Profile Info' + error
+          'No se pudo obtener la información del perfil' + error
         );
       }
     })

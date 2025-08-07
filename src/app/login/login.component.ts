@@ -49,7 +49,7 @@ export class LoginComponent {
   async handleSubmit() {
     // Validación: verificar que todos los campos requeridos estén completos
     if (!this.formData.email || !this.formData.password) {
-      this.showMessage("All fields are required");
+      this.showMessage("Todos los campos son necesarios");
       return;
     }
 
@@ -76,7 +76,7 @@ export class LoginComponent {
       this.showMessage(
         error?.error?.message ||
         error?.message ||
-        "Unable to Login a user" + error
+        "No se pudo iniciar sesión" + error
       );
     }
   }

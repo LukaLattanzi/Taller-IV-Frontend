@@ -90,7 +90,7 @@ export class SellComponent implements OnInit {
         this.showMessage(
           error?.error?.message ||
           error?.message ||
-          'Unable to get Products' + error
+          'No se pudo obtener la lista de productos' + error
         );
       },
     });
@@ -116,7 +116,7 @@ export class SellComponent implements OnInit {
   handleSubmit(): void {
     // Validación de campos requeridos (producto y cantidad son obligatorios)
     if (!this.productId || !this.quantity) {
-      this.showMessage("Please fill all fields")
+      this.showMessage("Por favor, completa todos los campos");
       return;
     }
 
@@ -146,7 +146,7 @@ export class SellComponent implements OnInit {
         this.showMessage(
           error?.error?.message ||
           error?.message ||
-          'Unable to sell a product' + error
+          'No se pudo procesar la venta del producto' + error
         );
       },
     })

@@ -125,7 +125,7 @@ export class AddEditProductComponent implements OnInit {
       // Manejo de errores al obtener categorías
       error: (error) => {
         // Mostrar mensaje de error detallado al usuario
-        this.showMessage(error?.error?.message || error?.message || "Unable to get all categories" + error)
+        this.showMessage(error?.error?.message || error?.message || "No se pudieron obtener las categorías" + error)
       }
     })
   }
@@ -168,7 +168,7 @@ export class AddEditProductComponent implements OnInit {
       // Manejo de errores al obtener datos del producto
       error: (error) => {
         // Mostrar mensaje de error detallado al usuario
-        this.showMessage(error?.error?.message || error?.message || "Unable to get product by id" + error)
+        this.showMessage(error?.error?.message || error?.message || "No se pudo obtener el producto por ID" + error)
       }
     })
   }
@@ -262,14 +262,14 @@ export class AddEditProductComponent implements OnInit {
         next: (res: any) => {
           if (res.status === 200) {
             // Mostrar mensaje de confirmación
-            this.showMessage("product updated successfully")
+            this.showMessage("producto actualizado correctamente")
             // Redirigir a la lista de productos
             this.router.navigate(['/product'])
           }
         },
         // Manejo de errores durante la actualización
         error: (error) => {
-          this.showMessage(error?.error?.message || error?.message || "Unable to update a product" + error)
+          this.showMessage(error?.error?.message || error?.message || "No se pudo actualizar el producto" + error)
         }
       })
     } else {
@@ -281,14 +281,14 @@ export class AddEditProductComponent implements OnInit {
         next: (res: any) => {
           if (res.status === 200) {
             // Mostrar mensaje de confirmación
-            this.showMessage("Product Saved successfully")
+            this.showMessage("Producto guardado correctamente")
             // Redirigir a la lista de productos
             this.router.navigate(['/product'])
           }
         },
         // Manejo de errores durante la creación
         error: (error) => {
-          this.showMessage(error?.error?.message || error?.message || "Unable to save a product" + error)
+          this.showMessage(error?.error?.message || error?.message || "No se pudo guardar el producto" + error)
         }
       })
     }

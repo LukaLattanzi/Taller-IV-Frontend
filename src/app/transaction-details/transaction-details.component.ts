@@ -103,7 +103,7 @@ export class TransactionDetailsComponent implements OnInit {
           this.showMessage(
             error?.error?.message ||
             error?.message ||
-            'Unable to Get Transaction by id ' + error
+            'No se pudo obtener la transacción' + error
           );
         }
       })
@@ -138,7 +138,7 @@ export class TransactionDetailsComponent implements OnInit {
           this.showMessage(
             error?.error?.message ||
             error?.message ||
-            'Unable to Update a Transaction ' + error
+            'No se pudo actualizar la transacción' + error
           );
         }
       })

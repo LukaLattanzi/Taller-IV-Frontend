@@ -83,7 +83,7 @@ export class CategoryComponent implements OnInit {
       },
       // Manejo de errores en la obtención de categorías
       error: (error) => {
-        this.showMessage(error?.error?.message || error?.message || "Unable to get all categories" + error)
+        this.showMessage(error?.error?.message || error?.message || "No se pudo obtener todas las categorías" + error)
       }
     })
   }
@@ -97,7 +97,7 @@ export class CategoryComponent implements OnInit {
   addCategory(): void {
     // Validación: verificar que el nombre de la categoría no esté vacío
     if (!this.categoryName) {
-      this.showMessage("Category name is required");
+      this.showMessage("El nombre de la categoría es obligatorio");
       return;
     }
 
@@ -106,7 +106,7 @@ export class CategoryComponent implements OnInit {
       // Manejo de respuesta exitosa
       next: (res: any) => {
         if (res.status === 200) {
-          this.showMessage("Category added successfully")
+          this.showMessage("Categoria creada correctamente")
           // Limpiar el campo de entrada
           this.categoryName = '';
           // Recargar la lista de categorías para mostrar la nueva
@@ -115,11 +115,10 @@ export class CategoryComponent implements OnInit {
       },
       // Manejo de errores en la creación
       error: (error) => {
-        this.showMessage(error?.error?.message || error?.message || "Unable to save category" + error)
+        this.showMessage(error?.error?.message || error?.message || "No se pudo guardar la categoría" + error)
       }
     })
   }
-
 
   /**
    * Método para actualizar una categoría existente
@@ -147,7 +146,7 @@ export class CategoryComponent implements OnInit {
       },
       // Manejo de errores en la actualización
       error: (error) => {
-        this.showMessage(error?.error?.message || error?.message || "Unable to edit category" + error)
+        this.showMessage(error?.error?.message || error?.message || "No se pudo editar la categoría" + error)
       }
     })
   }
@@ -173,30 +172,26 @@ export class CategoryComponent implements OnInit {
    * @param caetgoryId - ID de la categoría a eliminar
    * @returns void
    */
-  handleDeleteCategory(caetgoryId: string): void {
+  handleDeleteCategory(categoryId: string): void {
     // Mostrar diálogo de confirmación antes de eliminar
-    if (window.confirm("Are you sure you want to delete this categoy?")) {
+    if (window.confirm("¿Estás seguro de que deseas eliminar esta categoría?")) {
       // Proceder con la eliminación si el usuario confirma
-      this.apiService.deleteCategory(caetgoryId).subscribe({
+      this.apiService.deleteCategory(categoryId).subscribe({
         // Manejo de respuesta exitosa
         next: (res: any) => {
           if (res.status === 200) {
-            this.showMessage("Category deleted successfully")
+            this.showMessage("Categoría eliminada correctamente")
             // Recargar la lista de categorías para reflejar los cambios
             this.getCategories(); //reload the category
           }
         },
         // Manejo de errores en la eliminación
         error: (error) => {
-          this.showMessage(error?.error?.message || error?.message || "Unable to Delete category" + error)
+          this.showMessage(error?.error?.message || error?.message || "No se pudo eliminar la categoría" + error)
         }
       })
     }
   }
-
-
-
-
 
   /**
    * Método utilitario para mostrar mensajes temporales al usuario

@@ -86,7 +86,7 @@ export class ProductComponent implements OnInit {
         this.showMessage(
           error?.error?.message ||
           error?.message ||
-          'Unable to edit category' + error
+          'No se pudo obtener la lista de productos' + error
         );
       },
     });
@@ -100,13 +100,13 @@ export class ProductComponent implements OnInit {
    */
   handleProductDelete(productId: string): void {
     // Mostrar diálogo de confirmación antes de eliminar
-    if (window.confirm('Are you sure you want to delete this product?')) {
+    if (window.confirm('¿Estás seguro de que deseas eliminar este producto?')) {
       // Proceder con la eliminación si el usuario confirma
       this.apiService.deleteProduct(productId).subscribe({
         // Manejo de respuesta exitosa
         next: (res: any) => {
           if (res.status === 200) {
-            this.showMessage('Product deleted successfully');
+            this.showMessage('Producto eliminado correctamente');
             // Recargar la lista de productos para reflejar los cambios
             this.fetchProducts(); //reload the products
           }
@@ -116,7 +116,7 @@ export class ProductComponent implements OnInit {
           this.showMessage(
             error?.error?.message ||
             error?.message ||
-            'Unable to Delete product' + error
+            'No se pudo eliminar el producto' + error
           );
         },
       });

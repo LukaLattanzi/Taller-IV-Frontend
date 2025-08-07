@@ -58,7 +58,7 @@ export class RegisterComponent {
       !this.formData.phoneNumber ||
       !this.formData.password
     ) {
-      this.showMessage("All fields are required");
+      this.showMessage("Todos los campos son necesarios");
       return;
     }
 
@@ -80,7 +80,7 @@ export class RegisterComponent {
       // Manejo de errores: capturar y mostrar errores de registro
       console.log(error)
       // Mostrar mensaje de error específico o genérico
-      this.showMessage(error?.error?.message || error?.message || "Unable to register a user" + error)
+      this.showMessage(error?.error?.message || error?.message || "No se pudo registrar al usuario" + error)
 
     }
   }

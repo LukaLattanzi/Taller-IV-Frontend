@@ -89,7 +89,7 @@ export class PurchaseComponent implements OnInit {
         this.showMessage(
           error?.error?.message ||
           error?.message ||
-          'Unable to get Products' + error
+          'No se pudo obtener la lista de productos' + error
         );
       },
     });
@@ -110,7 +110,7 @@ export class PurchaseComponent implements OnInit {
         this.showMessage(
           error?.error?.message ||
           error?.message ||
-          'Unable to get suppliers' + error
+          'No se pudo obtener la lista de proveedores' + error
         );
       },
     })
@@ -132,7 +132,7 @@ export class PurchaseComponent implements OnInit {
   handleSubmit(): void {
     // Validación de campos requeridos
     if (!this.productId || !this.supplierId || !this.quantity) {
-      this.showMessage("Please fill all fields")
+      this.showMessage("Por favor, completa todos los campos");
       return;
     }
 
@@ -162,7 +162,7 @@ export class PurchaseComponent implements OnInit {
         this.showMessage(
           error?.error?.message ||
           error?.message ||
-          'Unable to get purchase a product' + error
+          'No se pudo procesar la compra del producto' + error
         );
       },
     })
